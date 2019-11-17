@@ -77,7 +77,7 @@ class Allocator:
 		return temp_pay
 	
 	@classmethod
-	def test (cls, file1, file2):
+	def allocate (cls, file1, file2):
 		ts_names, ts_hours = cls._import_timesheet_data(file1)
 		pr_names, pr_pay = cls._missing_name_for_prepaid_seat(file2)
 		total_pay = cls._pay_tally(pr_names, pr_pay)
@@ -112,4 +112,4 @@ class Allocator:
 		df = pd.DataFrame(new_allocation, columns = x_lab)
 		return df
 		
-Allocator.test('timesheets.csv', 'payroll.csv')
+Allocator.allocate('timesheets.csv', 'payroll.csv')
